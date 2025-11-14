@@ -18,7 +18,7 @@ export default function Contact() {
     const { name, phone, item, quantity, message } = formData;
 
     // ✅ Your WhatsApp number (replace if needed)
-    const phoneNumber = "919876543210"; // Example: +91 9876543210
+    const phoneNumber = "919729588468"; // Example: +91 9876543210
 
     const text = `Hello Shiv Shakti Confectionery 👋,%0A
 I would like to place an order:%0A
@@ -121,7 +121,7 @@ Pincode: 126112`;
 
         {/* 📱 Floating WhatsApp Button */}
         <a
-          href="https://wa.me/919876543210"
+          href="https://wa.me/919729588468"
           target="_blank"
           rel="noopener noreferrer"
           className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:scale-110 transition-all duration-300"

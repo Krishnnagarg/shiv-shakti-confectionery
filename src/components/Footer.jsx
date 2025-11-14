@@ -8,7 +8,6 @@ export default function Footer() {
         <div className="flex gap-4 mt-4 md:mt-0">
           <a href="#" className="hover:scale-110 transition-all">Facebook</a>
           <a href="#" className="hover:scale-110 transition-all">Instagram</a>
-          <a href="#" className="hover:scale-110 transition-all">LinkedIn</a>
         </div>
       </div>
     </footer>
