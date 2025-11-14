@@ -5,7 +5,7 @@ export default function Hero() {
     <section
       className="h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: "url('/ss01.webp')", // put your image in public/ folder
+        backgroundImage: "url('/ss04.avif')", // put your image in public/ folder
       }}
     >
       <div className="text-center px-6 bg-white/40 backdrop-blur-md p-6 rounded-xl">

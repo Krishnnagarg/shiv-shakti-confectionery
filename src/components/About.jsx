@@ -8,7 +8,7 @@ export default function About() {
       }}
     >
       {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-white/70 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-white/70 "></div>
 
       <div className="relative max-w-6xl mx-auto px-6">
         <h2 className="text-3xl font-bold text-primary mb-6">About Us</h2>
