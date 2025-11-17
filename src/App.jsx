@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // OLD components (homepage)
@@ -10,7 +10,7 @@ import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
-// NEW Components (Dynamic Pages)
+// NEW Components
 import ProductGrid from "./components/ProductGrid";
 import PriceList from "./components/PriceList";
 import Gallery from "./components/Gallery";
@@ -19,13 +19,21 @@ import ContactPage from "./components/ContactPage";
 import MapEmbed from "./components/MapEmbed";
 import WhatsAppFloating from "./components/WhatsAppFloating";
 
+// ADMIN
+import AdminLogin from "./pages/AdminLogin";
+import AdminProducts from "./pages/AdminProducts";
+
 export default function App() {
+  const [loggedIn, setLoggedIn] = useState(
+    localStorage.getItem("admin") === "yes"
+  );
+
   return (
     <Router>
       <Navbar />
 
       <Routes>
-        {/* Homepage with old sections */}
+        {/* Homepage */}
         <Route
           path="/"
           element={
@@ -33,19 +41,32 @@ export default function App() {
               <Hero />
               <About />
               <Services />
+              <Gallery />
               <Testimonials />
               <Contact />
             </>
           }
         />
 
-        {/* NEW Dynamic Pages */}
+        {/* Dynamic Pages */}
         <Route path="/products" element={<ProductGrid />} />
         <Route path="/price" element={<PriceList />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact-page" element={<ContactPage />} />
         <Route path="/about-business" element={<BusinessDetails />} />
         <Route path="/location" element={<MapEmbed />} />
+
+        {/* ADMIN ROUTE */}
+        <Route
+          path="/admin"
+          element={
+            loggedIn ? (
+              <AdminProducts />
+            ) : (
+              <AdminLogin setLoggedIn={setLoggedIn} />
+            )
+          }
+        />
       </Routes>
 
       <Footer />

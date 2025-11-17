@@ -5,26 +5,26 @@ export default function useProducts() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const url = import.meta.env.VITE_SHEET_API; 
-    if (!url) return;
-
-    fetch(url)
-      .then((r) => r.json())
+    fetch("http://localhost:5000/api/products")
+      .then((res) => res.json())
       .then((data) => {
         setProducts(
-          data.map((p, i) => ({
-            id: p.ID || p.id || i,
-            name: p.Name || p.name || "",
-            price: p.Price || p.price || "",
-            category: p.Category || p.category || "",
-            image: p.Image || p.image || "",
-            description: p.Description || p.description || "",
-            available:
-              (p.Available || p.available || "yes").toLowerCase() === "yes",
+          data.map((p) => ({
+            id: p._id,
+            name: p.name,
+            price: p.price,
+            discount: p.discount || 0,
+            finalPrice: p.discount
+              ? p.price - (p.price * p.discount) / 100
+              : p.price,
+            image: p.image,
+            category: p.category,
+            description: p.description,
+            available: p.available !== false,
           }))
         );
       })
-      .catch((e) => console.error("fetch products error", e))
+      .catch((err) => console.error("Product Fetch Error:", err))
       .finally(() => setLoading(false));
   }, []);
 
